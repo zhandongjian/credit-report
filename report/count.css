@@ -1,0 +1,47 @@
+table {
+    border-collapse: separate;
+    border-spacing: 0px;
+}
+.navTitle {
+    font-size: 5.7vw;
+}
+.navBack {
+    position: absolute;
+    left: 3.9vw;
+}
+.navClose {
+    top: 0;
+    position: absolute;
+    right: 3.9vw;
+}
+.navBox {
+    height: 36vw;
+    line-height: 16vw;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 4.7vw;
+    background: #61A1FB;
+}
+
+.content{
+    padding: 8px;
+    height: 134vw;
+    overflow-y: auto;
+    margin-bottom: 8px
+}
+
+.count-table{
+    width: 100%
+}
+
+.count-table td, .count-table th{
+    color: #888888;
+    text-align: center;
+    font-size: 13px;
+    border: 0;
+}
+
+.count-table tbody tr:nth-child(even){
+    background: #cde2ff;
+}

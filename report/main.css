@@ -1,0 +1,113 @@
+body,p{
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+
+button, select {
+    text-transform: none;
+}
+
+.main{
+    background-image: url(./assets/img/main-header.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+}
+.report-example, .report-logo{
+    display: flex;
+    float: right;
+    padding-top: 20px;
+    padding-right: 26px;
+}
+.fa-question-circle-o{
+    color: #333333;
+    font-weight: 700;
+    font-size: 16px;
+    padding-right: 2px;
+}
+.report-example p a{
+    color: #333333;
+}
+a, a:hover {
+    text-decoration: none;
+}
+
+.risk-index, .risk-index-show{
+    color: #61A1F8;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.risk-index{
+    height: 126.225px;
+    width: 126.225px;
+    left: 122.513px;
+    top: 100.238px;
+}
+.risk-index p:first-child {
+    font-size: 24px;
+}
+.search-button{
+    position: absolute;
+    text-align: center;
+    font-size: 17px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #ffffff;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+}
+.slogan-area {
+    width: 100%;
+    padding-top: 10%;
+    padding-bottom: 50px;
+    text-align: center;
+}
+.slogan-area p{
+    color: #b3b3b3;
+    padding-bottom: 20px;
+    font-size: 14px;
+}
+.slogan-area .help{
+    color: #666666;
+}
+.slogan-area .help span {
+    color: #666666;
+}
+.slogan-area img{
+    width: 75%;
+    border: 0;
+    opacity: 0.6;
+}
+.slogan-area .authority{
+    padding-bottom: 0;
+    padding-top: 20px;
+}
+.footer{
+    height: 47px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    background-color: #ffffff;
+    box-shadow: 1px 0 8px rgba(0, 0, 0, 0.14);
+    z-index: 1;
+}
+.footer .footer-left, .footer .footer-right{
+    flex: 1;
+    text-align: center;
+    line-height: 47px;
+    border-left: 1px solid #ececec;
+}
+.footer .footer-right a, .footer .footer-left a{
+    color: #61A1F8;
+}

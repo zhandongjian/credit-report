@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CreditReport</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./login.css">
+    <link rel="icon" type="image/x-icon" href="./assets/img/report.png">
+    <script type="text/javascript" src="./assets/jquery.min.js"></script>
+    <script type="text/javascript" src="./login.js"></script>
+</head>
+
+<body>
+    <div id="login" class="container">
+        <header class="login-banner">
+            <div class="logo"></div>
+        </header>
+
+        <div class="login-input-area">
+            <div class="input-item">
+                <i class="fa fa-tablet"></i>
+                <div class="inner">
+                    <input type="number" id="phoneNbr" maxlength="11" placeholder="输入要查询手机号" />
+                </div>
+                <p class="tip" style="display:none;" id="phoneTip">请输入正确的11位手机号</p>
+            </div>
+            <div class="input-item">
+                <i class="fa fa-lock"></i>
+                <div class="inner">
+                    <input class="borderR" type="number" maxlength="6" id="msgNbr" placeholder="输入验证码" />
+                    <button class="btn" onclick="sentMsg()" id="msgBtn">获取</button>
+                    <span class="sec" style="display: none;" id="msgCount">60s</span>
+                </div>
+                <p class="tip" style="display:none;" id="msgTip">请输入正确的6位验证码</p>
+            </div>
+        </div>
+
+        <div class="btn-area" onclick="login()">登录</div>
+        <div class="login-protocol">新用户点击登录即视为同意<a>《橙子报告使用协议》</a></div>
+    </div>
+</body>
+
+</html>
