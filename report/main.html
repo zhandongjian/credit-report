@@ -1,42 +1,39 @@
 <!doctype html>
-<html lang="en" style="font-size: 100px">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <title>CreditReport</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./assets/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./main.css">
     <link rel="icon" type="image/x-icon" href="./assets/img/report.png">
+    <script type="text/javascript" src="./assets/jquery.min.js"></script>
 </head>
 
-<body style="font-size: 16px;background:#f5f5f5;margin: 0;color: #333;">
-    <div id="app" class="eszmBox">
-        <div>
-            <div class="main" style="height: 371.25px;">
-                <!-- <div class="report-example"><i class=" fa fa-question-circle-o"></i>
-                    <p pointid="index_clk_example"><a href="/orange/example?SPC=ORANGE_CREDIT_3039&amp;IVC=SGZ999"
-                            class="">报告示例</a>
-                    </p>
-                </div> -->
-                <div class="risk-index" style="height: 126.225px; width: 126.225px; left: 122.513px; top: 100.238px;">
-                    <p>未获取</p>
-                    <p>橙子风险指数</p>
+<body>
+    <div class="main">
+        <div class="content">
+            <div class="content-box">
+                <div class="circle" id="toDetail">
+                    <div class="detail">
+                        <p class="detail-num" id="detailCount">未获取</p>
+                        <p class="detail-type" id="detailType">风险指数</p>
+                        <!-- <p class="detail-num">50%</p>
+                        <p class="detail-type">查看报告</p> -->
+                    </div>
                 </div>
-                <button name="homePageImmeQuery" pointid="index_clk_query" class="search-button"
-                    style="bottom: 19px;">立即查询</button>
             </div>
-            <!-- <div class="slogan-area">
-                <p class="help">橙子已帮助<span>3973248</span>位用户优化报告</p> <img
-                    src="https://img.billiontech.com/pro/galaxy/orange/index_bottom2.png">
-                <p class="authority">大数据风险评估</p>
-            </div> -->
-            <div class="footer">
-                <div pointid="index_clk_record" class="footer-left"><a>查询记录</a></div>
-                <div pointid="index_clk_about" class="footer-right"><a>关于橙子</a></div>
-            </div>
+        </div>
+        <div class="btn-area" onclick="queryReport()">立即查询</div>
+        <div class="footer">
+            <div class="footer-left" onclick="toList()"><a>查询记录</a></div>
+            <div class="footer-right" onclick="toAbout()"><a>关于</a></div>
         </div>
     </div>
 </body>
+
+<script type="text/javascript" src="./main.js"></script>
 
 </html>

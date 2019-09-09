@@ -1,97 +1,39 @@
-body,p{
-    margin: 0;
-    padding: 0;
-    line-height: 1;
-}
-
-button, html input[type=button], input[type=reset], input[type=submit] {
-    cursor: pointer;
-    -webkit-appearance: button;
-}
-
-button, select {
-    text-transform: none;
-}
-
 .main{
-    background-image: url(./assets/img/main-header.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    position: relative;
+    width: 100%;
+    height: 100%;
 }
-.report-example, .report-logo{
+.main .content{
+    padding: 16px
+}
+.main .content-box{
     display: flex;
-    float: right;
-    padding-top: 20px;
-    padding-right: 26px;
+    justify-content: center;
+    align-items: center;
+    padding: 10%;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 1px 0 8px rgba(0, 0, 0, 0.14);
 }
-.fa-question-circle-o{
-    color: #333333;
-    font-weight: 700;
-    font-size: 16px;
-    padding-right: 2px;
+.main .circle{
+    width: 160px;
+    height: 160px;
+    border: 11px solid #61A1F8;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.report-example p a{
-    color: #333333;
+.main .detail{
+    text-align: center;
 }
-a, a:hover {
-    text-decoration: none;
+.main .detail p{
+    color: #61A1F8;
+}
+.main .detail .detail-num{
+    font-size: 22px;
+    line-height: 40px;
 }
 
-.risk-index, .risk-index-show{
-    color: #61A1F8;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-.risk-index{
-    height: 126.225px;
-    width: 126.225px;
-    left: 122.513px;
-    top: 100.238px;
-}
-.risk-index p:first-child {
-    font-size: 24px;
-}
-.search-button{
-    position: absolute;
-    text-align: center;
-    font-size: 17px;
-    letter-spacing: 2px;
-    font-weight: 700;
-    color: #ffffff;
-    width: 100%;
-    background-color: transparent;
-    border: none;
-}
-.slogan-area {
-    width: 100%;
-    padding-top: 10%;
-    padding-bottom: 50px;
-    text-align: center;
-}
-.slogan-area p{
-    color: #b3b3b3;
-    padding-bottom: 20px;
-    font-size: 14px;
-}
-.slogan-area .help{
-    color: #666666;
-}
-.slogan-area .help span {
-    color: #666666;
-}
-.slogan-area img{
-    width: 75%;
-    border: 0;
-    opacity: 0.6;
-}
-.slogan-area .authority{
-    padding-bottom: 0;
-    padding-top: 20px;
-}
 .footer{
     height: 47px;
     width: 100%;

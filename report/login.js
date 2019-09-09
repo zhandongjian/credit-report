@@ -6,18 +6,18 @@ function sentMsg() {
 }
 
 function checkMsg() {
-    var phoneNbr = $("#phoneNbr").val();
+    var phoneNbr = $('#phoneNbr').val();
     var phoneTest = /^1(\d{10})$/;
     if (phoneNbr.length === 11) {
         if (phoneTest.test(phoneNbr)) {
-            $("#phoneTip").hide();
+            $('#phoneTip').hide();
             return true;
         } else {
-            $("#phoneTip").show();
+            $('#phoneTip').show();
             return false;
         }
     } else {
-        $("#phoneTip").show();
+        $('#phoneTip').show();
         return false;
     }
 }
@@ -25,23 +25,23 @@ function checkMsg() {
 function postMsg() {
     // 正式代码start
     // $.ajax({
-    //     type: "POST",
-    //     url: "postMsg",
-    //     contentType: "application/json",  
-    //     data: JSON.stringify({ phone: $("#phoneNbr").val() }), // 输入参数phone
+    //     type: 'POST',
+    //     url: 'postMsg',
+    //     contentType: 'application/json',  
+    //     data: JSON.stringify({ phone: $('#phoneNbr').val() }), // 输入参数phone
     //     success: function (jsonResult) {
     //         // 返回 {code=‘1’,msg='SUCCESS'}
     //         if (jsonResult.code === '1') {
-    //             $("#msgBtn").hide();
-    //             $("#msgCount").show();
+    //             $('#msgBtn').hide();
+    //             $('#msgCount').show();
     //             var timesRun = 60;
     //             var interval = setInterval(function () {
     //                 timesRun--;
-    //                 $("#msgCount").html(timesRun + 's');
+    //                 $('#msgCount').html(timesRun + 's');
     //                 if (timesRun === 0) {
     //                     clearInterval(interval);
-    //                     $("#msgBtn").show();
-    //                     $("#msgCount").hide();
+    //                     $('#msgBtn').show();
+    //                     $('#msgCount').hide();
     //                 }
     //             }, 1000);
     //         } else {
@@ -49,36 +49,36 @@ function postMsg() {
     //         }
     //     },
     //     error: function (data) {
-    //         alert("通讯异常");
+    //         alert('通讯异常');
     //     }
     // });
     // 正式代码end
 
     // 测试代码start
-    $("#msgBtn").hide();
-    $("#msgCount").show();
+    $('#msgBtn').hide();
+    $('#msgCount').show();
     var timesRun = 60;
     var interval = setInterval(function () {
         timesRun--;
-        $("#msgCount").html(timesRun + 's');
+        $('#msgCount').html(timesRun + 's');
         if (timesRun === 0) {
             clearInterval(interval);
-            $("#msgBtn").show();
-            $("#msgCount").hide();
+            $('#msgBtn').show();
+            $('#msgCount').hide();
         }
     }, 1000);
     // 测试代码end
 }
 
 function login() {
-    var msgNbr = $("#msgNbr").val();
+    var msgNbr = $('#msgNbr').val();
     var msgTest = /^\d{6}$/;
     if (checkMsg()) {
         if (msgTest.test(msgNbr)) {
-            $("#msgTip").hide();
+            $('#msgTip').hide();
             postLogin();
         } else {
-            $("#msgTip").show();
+            $('#msgTip').show();
         }
     }
 }
@@ -86,10 +86,10 @@ function login() {
 function postLogin() {
     // 正式代码start
     // $.ajax({
-    //     type: "POST",
-    //     url: "postLogin",
-    //     contentType: "application/json",
-    //     data: JSON.stringify({ phone: $("#phoneNbr").val(), msg: $("#msgNbr").val() }), // 输入参数phone,msg
+    //     type: 'POST',
+    //     url: 'postLogin',
+    //     contentType: 'application/json',
+    //     data: JSON.stringify({ phone: $('#phoneNbr').val(), msg: $('#msgNbr').val() }), // 输入参数phone,msg
     //     success: function (jsonResult) {
     //         // 返回 {code=‘1’,msg='SUCCESS'}
     //         if (jsonResult.code === '1') {
@@ -100,7 +100,7 @@ function postLogin() {
     //         }
     //     },
     //     error: function (data) {
-    //         alert("通讯异常");
+    //         alert('通讯异常');
     //     }
     // });
     // 正式代码end
