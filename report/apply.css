@@ -6,7 +6,7 @@
 .tab {
     display: flex;
     align-items: center;
-    height: 18px;
+    height: auto;
     color: #fa8842;
     background-color: #D2E7FC;
     vertical-align: middle;
