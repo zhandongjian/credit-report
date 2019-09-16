@@ -1,22 +1,24 @@
 <!doctype html>
-<html lang="en" style="font-size: 100px">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <title>CreditReport</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./assets/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./report.css">
     <link rel="icon" type="image/x-icon" href="./assets/img/report.png">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./report.css">
+    <script type="text/javascript" src="./assets/jquery.min.js"></script>
 </head>
 
-<body style="font-size: 16px;background:#f5f5f5;margin: 0;color: #333;">
-    <div id="report_clothes" class="wrapper">
+<body>
+    <div class="wrapper">
         <div class="rConclusion">
             <header class="banner">
                 <div class="banner-main">
-                    <p class="tit1">风险指数<span class="larger">12</span><span class="larger fuHao">%</span></p>
-                    <p>您的风险<span>健康</span>，指数越小风险越低。
+                    <p class="tit1">风险指数<span class="larger" id="score">12</span><span class="larger fuHao">%</span></p>
+                    <p>您的风险<span id="state">健康</span>，指数越小风险越低。
                     </p>
                 </div>
             </header>
@@ -25,14 +27,14 @@
                     <p class="tit">风险解读</p>
                     <div class="abstract-main">
                         <div class="main-item abstract-main-top">
-                            <div class="main-item-content">
+                            <div class="main-item-content" id="riskList">
                                 <p>未检测到风险点</p>
                             </div>
                         </div>
                         <div class="main-item abstract-main-bottom">
                             <div class="main-item-left">
                                 <div class="bottom-name">网贷申请通过率</div>
-                                <p><span>88</span><span class="fuHao">%</span>
+                                <p id="passPercent"><span>88</span><span class="fuHao">%</span>
                                     网贷贵宾，万般拥戴
                                 </p>
                             </div>
@@ -57,47 +59,54 @@
             <div class="detail-header-name">报告详情</div>
             <div class="detail-header-main">
                 <div class="detail-header-content">
-                    <div class="tag">生效中</div>
                     <div class="top">
                         <div class="baseInfo clearfix">
-                            <div class="fl userName">
-                                *锦
+                            <div class="fl userName" id="usrName">
                             </div>
                             <div class="fl otherInfo">
                                 <div class="header-main-item">
-                                    <p><span>29岁</span><span>男性</span></p>
-                                    <p>广东省汕尾市</p>
+                                    <p><span id="usrAge"></span><span id="usrSex"></span></p>
+                                    <p id="usrAdr"></p>
                                 </div>
                             </div>
                         </div>
                         <div class="otherInfo2">
-                            <p><i class="fa fa-address-card-o"></i>441521***********8234</p>
-                            <p><i class="fa fa-wpforms"></i>NO.2019082418062930</p>
+                            <p><i class="fa fa-address-card-o"></i><span id="usrID"></span></p>
+                            <p><i class="fa fa-wpforms"></i><span id="usrNbr"></span></p>
                         </div>
                     </div>
                     <div class="bot clearfix">
-                        <p class="fr">生成时间：2019-08-24 20:27:51</p>
+                        <p class="fr">生成时间：<span id="reportDate"></span></p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="operator">
-            <div class="operator-header">
-                <p class="zima-score">授权运营商，结果更准确</p> <button name="resultPageOpretorAuth" class="auth-btn">立即获取
-                    &gt;</button>
-            </div>
-        </div>
-
-        <div id="RCreditOverdueRisk" class="">
+        <div id="RCreditOverdueRisk">
             <div class="detail-main-title style2"><span class="detail-item-name">信贷逾期风险</span>
             </div>
             <section>
                 <div class="wrapper">
-                    <p class="title-area"><span class="title">是否命中信贷逾期风险：</span> <span class="content">否</span></p>
-                    <div class="details"> </div>
+                    <p class="title-area"><span class="title">是否命中信贷逾期风险：</span> <span class="content"
+                            id="isOverdue"></span></p>
                 </div>
             </section>
+            <div class="contentPadding" id="isOverdueTable" style="display: none;padding-top: 0">
+                <div class="basicTable MulplatTable5">
+                    <table width="100%" class="tableL4">
+                        <thead>
+                            <tr class="isTh" style="background: #FFFFFF;">
+                                <td>数据更新时间</td>
+                                <td>逾期金额</td>
+                                <td>逾期天数</td>
+                                <td>验证状态</td>
+                            </tr>
+                        </thead>
+                        <tbody id="isOverdueTbody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
         <div id="RBadInformationRisk">
@@ -105,8 +114,11 @@
             </div>
             <section>
                 <div class="wrapper">
-                    <p class="title-area"><span class="title">是否命中行政负面风险：</span> <span class="content">否</span></p>
-                    <div class="details"> </div>
+                    <p class="title-area"><span class="title">是否命中行政负面风险：</span> <span class="content" id="isAdminis"></span></p>
+                    <div class="details">
+                        <div style="padding-bottom: 15px;" id="isAdminisList">
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
@@ -117,28 +129,23 @@
                 </div>
                 <div class="contentPaddingLr">
                     <div class="wrapper">
-                        <p class="title-area"><span class="title">3个月内正常还款笔数：</span> <span class="content">无记录</span>
+                        <p class="title-area"><span class="title">3个月内正常还款笔数：</span> <span class="content" id="3MonSuccNbr">无记录</span>
                         </p>
-                        <div class="details"> </div>
                     </div>
                     <div class="wrapper">
-                        <p class="title-area"><span class="title">3个月内正常还款金额：</span> <span class="content">无记录</span>
+                        <p class="title-area"><span class="title">3个月内正常还款金额：</span> <span class="content" id="3MonSuccMoney">无记录</span>
                         </p>
-                        <div class="details"> </div>
                     </div>
                     <div class="wrapper">
-                        <p class="title-area"><span class="title">最近一次还款时间：</span> <span class="content">无记录</span></p>
-                        <div class="details"> </div>
+                        <p class="title-area"><span class="title">最近一次还款时间：</span> <span class="content" id="lastSuccDate">无记录</span></p>
                     </div>
                     <div class="wrapper">
-                        <p class="title-area"><span class="title">历史最大成功还款金额：</span> <span class="content">无记录</span>
+                        <p class="title-area"><span class="title">历史最大成功还款金额：</span> <span class="content" id="maxSuccMoney">无记录</span>
                         </p>
-                        <div class="details"> </div>
                     </div>
                     <div class="wrapper">
-                        <p class="title-area"><span class="title">是否同时发生多笔借贷：</span> <span class="content">无记录</span>
+                        <p class="title-area"><span class="title">是否同时发生多笔借贷：</span> <span class="content" id="isSuccCurrent">无记录</span>
                         </p>
-                        <div class="details"> </div>
                     </div>
                 </div>
             </div>
@@ -149,33 +156,26 @@
                 </div>
                 <div class="contentPaddingLrb">
                     <div class="wrapper">
-                        <p class="title-area"><span class="title">逾期已还最长天数：</span> <span class="content"></span></p>
-                        <div class="details"> </div>
+                        <p class="title-area"><span class="title">逾期已还最长天数：</span> <span class="content" id="overdueDay">34天</span></p>
                     </div>
                     <div class="wrapper">
-                        <p class="title-area"><span class="title">3个月内逾期笔数：</span> <span class="content">无记录</span></p>
-                        <div class="details"> </div>
+                        <p class="title-area"><span class="title">3个月内逾期笔数：</span> <span class="content" id="3MonNbr">无记录</span></p>
                     </div>
                     <div class="wrapper">
-                        <p class="title-area"><span class="title">3个月内逾期金额：</span> <span class="content">无记录</span></p>
-                        <div class="details"> </div>
+                        <p class="title-area"><span class="title">3个月内逾期金额：</span> <span class="content" id="3MonMoney">无记录</span></p>
                     </div>
                     <div class="wrapper">
-                        <p class="title-area"><span class="title">3个月内逾期平台数：</span> <span class="content">无记录</span></p>
-                        <div class="details"> </div>
+                        <p class="title-area"><span class="title">3个月内逾期平台数：</span> <span class="content" id="3MonPlatform">无记录</span></p>
                     </div>
                     <div class="wrapper">
-                        <p class="title-area"><span class="title">最近一次逾期时间：</span> <span class="content">无记录</span></p>
-                        <div class="details"> </div>
+                        <p class="title-area"><span class="title">最近一次逾期时间：</span> <span class="content" id="lastDate">无记录</span></p>
                     </div>
                     <div class="wrapper">
-                        <p class="title-area"><span class="title">历史最大逾期金额：</span> <span class="content">无记录</span></p>
-                        <div class="details"> </div>
+                        <p class="title-area"><span class="title">历史最大逾期金额：</span> <span class="content" id="maxMoney">无记录</span></p>
                     </div>
                     <div class="wrapper">
-                        <p class="title-area"><span class="title">是否同时在多家机构逾期：</span> <span class="content">无记录</span>
+                        <p class="title-area"><span class="title">是否同时在多家机构逾期：</span> <span class="content" id="isCurrent">无记录</span>
                         </p>
-                        <div class="details"> </div>
                     </div>
                     <div class="sign-box">
                         <div class="top clearfix">
@@ -199,38 +199,28 @@
             <div class="contentPaddingLrb">
                 <div class="wrapper">
                     <p class="title-area"><span class="title">身份证是否命中网贷重点关注名单：</span> <span class="content">否</span></p>
-                    <div class="details"> </div>
                 </div>
                 <div class="wrapper">
                     <p class="title-area"><span class="title">手机号是否命中网贷重点关注名单：</span> <span class="content">否</span></p>
-                    <div class="details"> </div>
                 </div>
                 <div class="wrapper">
                     <p class="title-area"><span class="title">身份证是否命中高风险关注名单：</span> <span class="content">否</span></p>
-                    <div class="details"> </div>
                 </div>
                 <div class="wrapper">
                     <p class="title-area"><span class="title">手机号是否命中高风险关注名单：</span> <span class="content">否</span></p>
-                    <div class="details"> </div>
                 </div>
                 <div class="wrapper">
                     <p class="title-area"><span class="title">身份证是否存在信贷逾期历史记录：</span> <span class="content">否</span></p>
-                    <div class="details"> </div>
                 </div>
-                <!---->
                 <div class="wrapper">
                     <p class="title-area"><span class="title">手机号是否命中通讯小号库：</span> <span class="content">否</span></p>
-                    <div class="details"> </div>
                 </div>
                 <div class="wrapper">
                     <p class="title-area"><span class="title">手机号是否命中虚假号码库：</span> <span class="content">否</span></p>
-                    <div class="details"> </div>
                 </div>
                 <div class="wrapper">
                     <p class="title-area"><span class="title">手机号是否命中诈骗骚扰库：</span> <span class="content">否</span></p>
-                    <div class="details"> </div>
                 </div>
-                <!---->
                 <div class="sign-box">
                     <div class="top clearfix">
                         <div class="fl logo">
@@ -245,12 +235,10 @@
                             出现命中网贷重点关注名单、高风险关注名单等情况，并不代表您的风险一定很高。命中原因可能是您历史存在异常操作行为，比如在高危时段申请、频繁申请、提供过不实资料等。</p>
                     </div>
                 </div>
-                <!---->
             </div>
         </div>
         <div class="detail-main-item">
             <div class="detail-main-title style2"><span class="detail-item-name">关联信息检测</span>
-                <!---->
             </div>
             <div class="contentPaddingLrb">
                 <div class="wrapper">
@@ -303,28 +291,28 @@
                             <td>6个月</td>
                             <td>12个月</td>
                         </tr>
-                        <tr class="">
+                        <tr>
                             <td>信用卡中心</td>
                             <td>1</td>
                             <td>1</td>
                             <td>1</td>
                             <td>1</td>
                         </tr>
-                        <tr class="">
+                        <tr>
                             <td>大型消费金融公司</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
                         </tr>
-                        <tr class="">
+                        <tr>
                             <td>P2P网贷</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>
                         </tr>
-                        <tr class="">
+                        <tr>
                             <td>消费分期平台</td>
                             <td>0</td>
                             <td>0</td>
@@ -335,31 +323,8 @@
                 </div>
             </div>
         </div>
-        <div class="qr-code">
-            <div class="single-qrcode-area">
-                <h1>【 下载橙子APP 】</h1>
-                <h2>橙子报告随时查看 风险行为及时了解</h2>
-                <div class="img-area">
-                    <div class="code"><img width="90%"
-                            src="https://img.billiontech.com/pro/galaxy/20190828160508992062.png"></div>
-                    <div class="fingerprint"></div>
-                </div>
-                <div class="press-words-area"><img src="https://img.billiontech.com/pro/galaxy/orange/qr-left.png">
-                    <p>长按上图，识别二维码，注册下载</p> <img src="https://img.billiontech.com/pro/galaxy/orange/qr-right.png">
-                </div>
-            </div>
-            <div class="bottom-info-area">
-                <div class="bottom-orange">
-                    <div class="circle top"><i class="fa fa-circle"></i> <i class="fa fa-circle"></i>
-                    </div>
-                    <div class="circle btm"><i class="fa fa-circle"></i> <i class="fa fa-circle"></i>
-                    </div>
-                    <h1>平台说明</h1>
-                    <p>橙子报告是根据网络行为大数据出具的面向社会人群的综合报告，只针对用户数据进行分析展示，报告内容仅供用户参考，如有异议，请咨询官方客服。</p>
-                </div>
-            </div>
-        </div>
     </div>
 </body>
+<script type="text/javascript" src="./report.js"></script>
 
 </html>
