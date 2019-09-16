@@ -24,6 +24,20 @@ function checkMsg() {
 
 function postMsg() {
     // 正式代码start
+    // 设置短信倒计时
+    // $('#msgBtn').hide();
+    // $('#msgCount').show();
+    // var timesRun = 60;
+    // var interval = setInterval(function () {
+    //     timesRun--;
+    //     $('#msgCount').html(timesRun + 's');
+    //     if (timesRun === 0) {
+    //         clearInterval(interval);
+    //         $('#msgBtn').show();
+    //         $('#msgCount').hide();
+    //     }
+    // }, 1000);
+    // // 调用接口
     // $.ajax({
     //     type: 'POST',
     //     url: 'postMsg',
@@ -31,19 +45,7 @@ function postMsg() {
     //     data: JSON.stringify({ phone: $('#phoneNbr').val() }), // 输入参数phone
     //     success: function (jsonResult) {
     //         // 返回 {code=‘1’,msg='SUCCESS'}
-    //         if (jsonResult.code === '1') {
-    //             $('#msgBtn').hide();
-    //             $('#msgCount').show();
-    //             var timesRun = 60;
-    //             var interval = setInterval(function () {
-    //                 timesRun--;
-    //                 $('#msgCount').html(timesRun + 's');
-    //                 if (timesRun === 0) {
-    //                     clearInterval(interval);
-    //                     $('#msgBtn').show();
-    //                     $('#msgCount').hide();
-    //                 }
-    //             }, 1000);
+    //         if (jsonResult.code === '1') {   
     //         } else {
     //             alert(jsonResult.msg);
     //         }
