@@ -17,7 +17,7 @@ function getLastReport() {
                 $('#toDetail').unbind('click').bind('click', toDetail);
     //         } else {
     //             alert(jsonResult.msg);
-    //             $('#toDetail').unbind()；
+    //             $('#toDetail').unbind('click')；
     //         }
     //     },
     //     error: function (data) {

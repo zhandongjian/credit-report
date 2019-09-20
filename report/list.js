@@ -45,7 +45,7 @@ function getListDate() {
     var listHtml = '';
     for (var i = 0; i < listData.length; i++) {
         listHtml = listHtml +
-            '<div class="record-wrapper">' +
+            '<div class="record-wrapper" onclick="toDetail()">' +
             '<div class="item-box">' +
             '<div class="record-item">' +
             '<div class="item-content">' +
@@ -70,4 +70,8 @@ getListDate();
 
 function toApply(){
     window.location.href = './apply.html';
+}
+
+function toDetail(){
+    window.location.href = './report.html';
 }

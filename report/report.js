@@ -55,11 +55,14 @@ function getDetail() {
 
     var detail = jsonResult.data;
 
-    $('#score').html('12'); // 评分
+    $('#score').html(detail.riskIndex); // 评分
     $('#state').html('健康'); // 状态：健康，中等，偏高
 
     // 风险列表：根据内容加载列表 <p>XX</p>
-    var riskHtml = '<p>未检测到风险点</p><p>命中信贷逾期风险</p><p>命中行政负面风险</p><p>命中多头借贷</p><p>命中行业关注名单</p>';
+    var riskHtml = '';
+    for (var i = 0; i < detail.lawRiskDetail.length; i++) {
+        riskHtml = riskHtml + '<p>' +detail.lawRiskDetail[i].riskName + '</p>';
+    } 
     $('#riskList').html(riskHtml);
 
     // 网贷申请通过率 修改文案： 88 及 网贷贵宾，万般拥戴
@@ -72,7 +75,7 @@ function getDetail() {
     $('#usrSex').html('男性'); // 注意转义
     $('#usrAdr').html(detail.address);
     $('#usrID').html(detail.idCard); // 注意脱敏
-    $('#usrNbr').html('NO.2019082418062930');
+    $('#usrNbr').html('NO.' + detail.requestId);
     $('#reportDate').html('2019-08-24 20:27:51'); // 注意转义
 
     // 是否命中信贷逾期风险
