@@ -12,12 +12,15 @@
     <script type="text/javascript" src="./assets/jquery.min.js"></script>
 </head>
 
-<body>
-    <div class="wrapper">
+<body id="reportBody" class="hideOverflow">
+    <div id="showloading" class="loading">
+        <img class="loadingImg" src="./assets/img/loading.gif" width="50" height="50">
+    </div>
+    <div class="wrapper" id="showdetail">
         <div class="rConclusion">
             <header class="banner">
                 <div class="banner-main">
-                    <p class="tit1">风险指数<span class="larger" id="score">12</span><span class="larger fuHao">%</span></p>
+                    <p class="tit1">风险指数<span class="larger" id="score">0</span><span class="larger fuHao">%</span></p>
                     <p>您的风险<span id="state">健康</span>，指数越小风险越低。
                     </p>
                 </div>

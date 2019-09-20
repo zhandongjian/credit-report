@@ -1,5 +1,59 @@
 function getDetail() {
+    setTimeout(function () {
+        $('#reportBody').removeClass('hideOverflow');
+        $('#showloading').hide();
+    }, 5000);
+
     // ajax返回数据
+    var jsonResult = {
+        "data": {
+            "address": "湖北省/襄樊市/襄阳县",
+            "id": 36,
+            "idCard": "420621198503099460",
+            "idCardCorrelatedPhonesCount": 0,
+            "idCardCorrelatedPhonesDetail": "[]",
+            "isFakePhone": 2,
+            "isHarassPhone": 2,
+            "isHightRiskIdCardBlacklist": 2,
+            "isHightRiskPhoneBlacklist": 2,
+            "isInternetLoadPhoneBlacklist": 2,
+            "isInternetLoanIdCardBlacklist": 2,
+            "isLawRisk": "1",
+            "isMeanwhileOverduePlatform": 2,
+            "isOverdue": 1,
+            "isOverdueHistoryIdCard": 1,
+            "isSometimeLoans": 2,
+            "lastOverdueTime": "2019-09-01",
+            "lawRiskDetail": [
+                { "isHit": "2", "riskId": "idcard_hit_court_dishonesty", "riskName": "身份证命中法院失信被执行人" },
+                { "isHit": "2", "riskId": "idcard_hit_court_executed", "riskName": "身份证命中法院被执行人" },
+                { "isHit": "2", "riskId": "idcard_hit_crime", "riskName": "身份证命中犯罪通缉名单" },
+                { "isHit": "2", "riskId": "hit_break_law", "riskName": "疑似涉黄涉恐行为" },
+                { "isHit": "2", "riskId": "hit_cheat_loan", "riskName": "疑似存在骗贷行为" },
+                { "isHit": "2", "riskId": "hit_infomation_forge", "riskName": "疑似身份信息不符" }
+            ],
+            "loanPlatformCheckDetailJson": [
+                { "loanCount15d": 0, "loanCount180d": 3, "loanCount30d": 0, "loanCount90d": 3, "orgCount": 0, "orgType": "CASH_LOAN", "orgTypeName": "现金贷" },
+                { "loanCount15d": 1, "loanCount180d": 2, "loanCount30d": 1, "loanCount90d": 2, "orgCount": 0, "orgType": "CONSUMSTAGE", "orgTypeName": "消费分期" }],
+            "maximumOverdueMoney": "1000-2000",
+            "name": "王国青",
+            "overdueDetail": [
+                { "overdueDate": 1567267200000, "overdueDays": "M0", "overdueMoney": "1000-2000", "overdueStatus": "未结清", "overdueUpdateDate": "2019-09" }
+            ],
+            "phone": "15112338336",
+            "requestId": "0000000",
+            "riskIndex": 70,
+            "riskSuggest": "复查",
+            "threeMonthOverdueCount": "1",
+            "threeMonthOverdueMoney": "1",
+            "unitId": "99999",
+            "userId": "3333"
+        },
+        "code": "1",
+        "msg": "成功"
+    }
+
+    var detail = jsonResult.data;
 
     $('#score').html('12'); // 评分
     $('#state').html('健康'); // 状态：健康，中等，偏高
@@ -13,11 +67,11 @@ function getDetail() {
     $('#passPercent').html(passPercentHtml);
 
     // 用户信息
-    $('#usrName').html('*张三'); // 注意脱敏
+    $('#usrName').html(detail.name); // 注意脱敏
     $('#usrAge').html('29岁'); // 注意转义
     $('#usrSex').html('男性'); // 注意转义
-    $('#usrAdr').html('广东省汕尾市');
-    $('#usrID').html('441521***********8234'); // 注意脱敏
+    $('#usrAdr').html(detail.address);
+    $('#usrID').html(detail.idCard); // 注意脱敏
     $('#usrNbr').html('NO.2019082418062930');
     $('#reportDate').html('2019-08-24 20:27:51'); // 注意转义
 
