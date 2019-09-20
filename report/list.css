@@ -1,25 +1,25 @@
-body,p{
-    margin: 0;
-    padding: 0;
-    line-height: 1;
+.list-content{
+    width: 100%;
+    height: 100%;
+    padding: 6px 12px;
 }
 .item-box{
     background-color: #fff;
     position: relative;
-    margin: 0.12rem auto 0 auto;
-    border-radius: 0.08rem;
-    width: 3.51rem;
+    margin: 12px auto 0 auto;
+    border-radius: 8px;
+    width: 100%;
 }
 .record-item {
     position: relative;
 }
 .item-content{
-    padding: 0.15rem;
+    padding: 15px;
 }
 .item-content p{
-    height: 0.25rem;
-    line-height: 0.25rem;
-    font-size: 0.13rem;
+    height: 25px;
+    line-height: 25px;
+    font-size: 13px;
     color: #191D33;
     text-align: left;
     display: block;
@@ -28,11 +28,11 @@ body,p{
     color: #8D8E99;
 }
 .score-box {
-    width: 0.71rem;
-    height: 0.6rem;
+    width: 70px;
+    height: 60px;
     position: absolute;
-    top: -0.062rem;
-    right: 0.15rem;
+    top: -6px;
+    right: 15px;
     background-image: url(./assets/img/type.png);
     background-repeat: no-repeat;
     background-size: 100%;
@@ -44,32 +44,14 @@ body,p{
 }
 .score-box p{
     text-align: center;
-    padding-left: 0.04rem;
+    padding-left: 4px;
 }
 .score-box p:first-child {
-    margin-bottom: 0.04rem;
+    margin-bottom: 4px;
 }
 .score-box .risk-score{
-    font-size: 0.28rem;
+    font-size: 28px;
 }
 .score-box .percent{
-    font-size: 0.11rem;
-}
-
-.btn-area{
-    padding: 0 0 0.6rem 0;
-    text-align: center;
-}
-.pay-btn{
-    width: 100%;
-    height: 1.03rem;
-    background: url(./assets/img/btn.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    line-height: 1.03rem;
-    color: #fff;
-    border: none;
-}
-.pay-btn:focus{
-    border: none;
+    font-size: 11px;
 }
