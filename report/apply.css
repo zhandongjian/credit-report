@@ -4,12 +4,9 @@
     padding: 0 16px;
 }
 .tab {
-    display: flex;
-    align-items: center;
-    height: auto;
     color: #fa8842;
     background-color: #D2E7FC;
-    vertical-align: middle;
+    padding-left: 4px;
 }
 
 .input-area{
@@ -34,7 +31,7 @@
 }
 .input-area .input-item input {
     display: inline-block;
-    width: 76%;
+    width: 100%;
     outline: none;
     border: none;
     height: 25px;
