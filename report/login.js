@@ -112,3 +112,7 @@ function postLogin() {
     window.location.href = './main.html';
     // 测试代码end
 }
+
+function toAgree(){
+    window.location.href = './agree.html';
+}

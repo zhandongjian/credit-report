@@ -132,3 +132,7 @@ function postApply() {
     window.location.href = './report.html';
     // 测试代码end
 }
+
+function toAgree(){
+    window.location.href = './agree.html';
+}
