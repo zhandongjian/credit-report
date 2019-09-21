@@ -44,6 +44,7 @@
 }
 .btn,.sec{
     color: #61A1F8;
+    display: inline;
 }
 
 .tip {
